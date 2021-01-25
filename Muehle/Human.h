@@ -6,8 +6,7 @@ class Human : public Player
 {
 public:
 	Human(string color);
-	void kickEnemyToken(Positions position);
-	void spawnToken(Positions position);
-	
+	void kickEnemyToken();
+	void spawnToken();
 };
 

@@ -8,7 +8,7 @@ Player::Player(string color) {
 	for (int i = 0; i < 9; i++) {
 		tokenarray[i] = new Token(this);
 	}
-	
+	tokencounter = 9;
 
 }
 
@@ -27,5 +27,6 @@ void Player::surrender() {
 
 Token* Player::get_Token()
 {
-	return tokenarray[0];
+	tokencounter -= 1;
+	return tokenarray[tokencounter];
 }

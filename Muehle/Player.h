@@ -15,8 +15,9 @@ public:
 	void placeToken(Token* token, Positions* position);
 	void deleteToken(Positions* position);
 	void surrender();
-	virtual void kickEnemyToken(Positions position) = 0;
-	virtual void spawnToken(Positions position) = 0;
+	virtual void kickEnemyToken() = 0;
+	virtual void spawnToken() = 0;
 	bool surrendered;
 	Token* get_Token();
+	int get_tokencounter;
 };

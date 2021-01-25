@@ -11,19 +11,35 @@ Field::Field() {
 			
 
 		}
-		for (int i = 0; i < 3; i++) {
-			for (int j = 0; j < 8; j++) {
-				if (i + 1 <= 3) {
+	}
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 8; j++) {
+			if (j % 2 == 1) {
+				if (i < 2) {
 					fieldAsArray[i][j]->neighbourpositions[0] = fieldAsArray[i + 1][j];
 				}
-				if (i - 1 >= 0) {
-					fieldAsArray[i][j]->neighbourpositions[0] = fieldAsArray[i - 1][j];
+				if (i > 0) {
+					fieldAsArray[i][j]->neighbourpositions[1] = fieldAsArray[i - 1][j];
 				}
-				if (j + 1 <= 8) {
-					fieldAsArray[i][j]->neighbourpositions[0] = fieldAsArray[i][j+1];
+				if (j < 7) {
+					fieldAsArray[i][j]->neighbourpositions[2] = fieldAsArray[i][j + 1];
 				}
-				if (j - 1 >= 0) {
-					fieldAsArray[i][j]->neighbourpositions[0] = fieldAsArray[i][j-1];
+				if (j > 0) {
+					fieldAsArray[i][j]->neighbourpositions[3] = fieldAsArray[i][j - 1];
+				}
+			}
+			if (j % 2 == 0) {
+				if (j < 7) {
+					fieldAsArray[i][j]->neighbourpositions[2] = fieldAsArray[i][j + 1];
+				}
+				if (j > 0) {
+					fieldAsArray[i][j]->neighbourpositions[3] = fieldAsArray[i][j - 1];
+				}
+				if (j == 0) {
+					fieldAsArray[i][j]->neighbourpositions[3] = fieldAsArray[i][7];
+				}
+				if (j == 7) {
+					fieldAsArray[i][j]->neighbourpositions[2] = fieldAsArray[i][0];
 				}
 			}
 		}

@@ -3,9 +3,9 @@
 AI::AI(string color) :Player(color) {
 	tokencolor = color;
 }
-void AI::kickEnemyToken(Positions position) {
+void AI::kickEnemyToken() {
 
 }
-void AI::spawnToken(Positions position) {
+void AI::spawnToken() {
 
 }
