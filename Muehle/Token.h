@@ -1,6 +1,10 @@
-
+#pragma once
+#include "Player.h"
 class Token
 {
 public:
-	Player relatedPlayer;
+	Token(Player* player);
+	~Token();
+	Player* relatedPlayer;
+	string get_tokenasstring();
 };

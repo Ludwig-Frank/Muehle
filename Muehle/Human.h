@@ -1,9 +1,13 @@
 #pragma once
+#include <iostream>
+using namespace std;
 #include "Player.h"
 class Human : public Player
 {
 public:
-	void kickEnemyToken(Positions) override;
-	void spawnToken(Positions) override;
+	Human(string color);
+	void kickEnemyToken(Positions position);
+	void spawnToken(Positions position);
+	
 };
 

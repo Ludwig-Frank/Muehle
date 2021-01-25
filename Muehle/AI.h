@@ -3,7 +3,8 @@
 class AI : public Player
 {
 public:
-	void kickEnemyToken(Positions) override;
-	void spawnToken(Positions) override;
+	AI(string color);
+	void kickEnemyToken(Positions position) override;
+	void spawnToken(Positions position) override;
 };
 

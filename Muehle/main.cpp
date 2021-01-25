@@ -4,7 +4,11 @@
 using namespace std;
 Field* field;
 
-main() {
+ int main() {
 	field = new Field();
-	std::cout << field->fieldAsArray[0];
+	Human* henri = new Human("b");
+	henri->placeToken(henri->get_Token(), field->fieldAsArray[0][0]);
+	field->printfield();
+	return field->fieldAsArray[0][1]->neighbourpositions[3]->get_currentToken();
+	getchar();
 };

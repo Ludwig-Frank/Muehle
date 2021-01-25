@@ -1,18 +1,22 @@
+#pragma once
 #include <iostream>
-#include "Token.h"
-#include "Positions.h"
+class Token;
+class Positions;
 using namespace std;
 class Player
 {
 protected:
 	string tokencolor;
 	int tokencounter;
-public: 
+	Token* tokenarray[9];
+public:
+	Player(string color);
 	string get_tokencolor();
-	void placeToken(Token, Positions);
-	void deleteToken(Positions);
+	void placeToken(Token* token, Positions* position);
+	void deleteToken(Positions* position);
 	void surrender();
-	virtual void kickEnemyToken(Positions) = 0;
-	virtual void spawnToken(Positions) = 0;
+	virtual void kickEnemyToken(Positions position) = 0;
+	virtual void spawnToken(Positions position) = 0;
 	bool surrendered;
+	Token* get_Token();
 };

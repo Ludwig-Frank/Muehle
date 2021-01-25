@@ -1,12 +1,15 @@
 #include <iostream>
-#include "Player.h"
-using namespace std;
+#include"AI.h"
+#include"Human.h"
+#include"Positions.h"
+#include "Token.h"
 
+using namespace std;
 class Field
 {
 public:
-	string fieldAsArray[3][9];
+	Positions* fieldAsArray[3][8];
 	void printfield();
-	Player checkwin();
+	Token checkwin();
 	Field();
 };

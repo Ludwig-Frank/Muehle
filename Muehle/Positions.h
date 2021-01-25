@@ -1,16 +1,17 @@
 #pragma once
 #include<iostream>
-#include "Token.h"
+class Token;
 using namespace std;
 class Positions
 {
 private:
-	Token currentToken;
+	Token* currentToken;
 public:
+	Positions(int ring, int position);
 	int type;
 	Positions* neighbourpositions[4];
 	int coordinates[2];
-	Token get_currentToken();
-
+	string get_currentToken();
+	void set_token(Token* token);
 };
 
