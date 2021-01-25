@@ -7,7 +7,7 @@ using namespace std;
 extern Field* field;
 
 Player::Player() {
-	tokencolor = "w";
+
 }
 Player::~Player() {
 
