@@ -20,9 +20,6 @@ void Player::placeToken(Token* token, Positions* position) {
 void Player::deleteToken(Positions* position) {
 	field->fieldAsArray[position->coordinates[0]][position->coordinates[1]]->set_token(NULL);
 }
-void Player::surrender() {
-	surrendered = true;
-}
 
 Token* Player::get_Token()
 {

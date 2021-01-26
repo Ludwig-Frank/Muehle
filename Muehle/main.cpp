@@ -1,3 +1,6 @@
+//MatrNr: 5340606
+
+
 #include<iostream>
 #include "Field.h"
 #include <stdio.h>
@@ -34,7 +37,7 @@ int main() {
 			break;
 		default:
 			std::cout << "Fehlerhafte Eingabe" << endl;
-			RandomAI* player1 = new RandomAI("w");
+			start = false;
 		}
 		switch (type2) {
 		case 1: Human* player2 = new Human("b");
@@ -43,12 +46,14 @@ int main() {
 			break;
 		default:
 			std::cout << "Fehlerhafte Eingabe" << endl;
-			RandomAI* player2 = new RandomAI("b");
+			start = false;
 		}
 	}
 	field = new Field();
 	bool win = false;
 	string winner;
+	Player* player1;
+	Player* player2;
 	Player* currentPlayer = player1;	
 	while (!(player1->get_tokencounter() == 0 && player2->get_tokencounter() == 0)) {
 		field->printfield();
