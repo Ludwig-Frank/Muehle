@@ -11,5 +11,6 @@ public:
 	Positions* fieldAsArray[3][8];
 	void printfield();
 	Token checkwin();
+	bool checkMuehle(string token);
 	Field();
 };

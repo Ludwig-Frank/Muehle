@@ -30,3 +30,6 @@ Token* Player::get_Token()
 	tokencounter -= 1;
 	return tokenarray[tokencounter];
 }
+int Player::get_tokencounter() {
+	return tokencounter;
+}

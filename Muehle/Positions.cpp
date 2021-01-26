@@ -13,7 +13,7 @@ Positions::Positions(int ring, int position)
 string Positions::get_currentToken()
 {
 	if (currentToken) {
-		return currentToken->get_tokenasstring();
+		return currentToken->relatedPlayer->get_tokencolor();
 	}
 	else {
 		return "0";

@@ -19,5 +19,5 @@ public:
 	virtual void spawnToken() = 0;
 	bool surrendered;
 	Token* get_Token();
-	int get_tokencounter;
+	int get_tokencounter();
 };

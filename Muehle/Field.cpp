@@ -9,11 +9,12 @@ Field::Field() {
 		for (int j = 0; j < 8; j++) {
 			fieldAsArray[i][j] = new Positions(i,j);
 			
+			
 
 		}
 	}
 	for (int i = 0; i < 3; i++) {
-		for (int j = 0; j < 8; j++) {
+		for (int j = 0; j < 8; j++) 
 			if (j % 2 == 1) {
 				if (i < 2) {
 					fieldAsArray[i][j]->neighbourpositions[0] = fieldAsArray[i + 1][j];
@@ -63,4 +64,22 @@ void Field::printfield() {
 }
 Token Field::checkwin() {
 	return NULL;
+}
+
+bool Field::checkMuehle(string token)
+{
+	bool muehle = false;
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 8; j++) {
+			if (i % 2 == 1) {
+				if (fieldAsArray[i][j]->neighbourpositions[0]->get_currentToken() == token && fieldAsArray[i][j]->neighbourpositions[1]->get_currentToken() == token) {
+					bool muehle = true;
+				}
+				if (fieldAsArray[i][j]->neighbourpositions[2]->get_currentToken() == token && fieldAsArray[i][j]->neighbourpositions[3]->get_currentToken() == token) {
+					bool muehle = true;
+				}
+			}
+		}
+	}
+	return muehle;
 }
