@@ -15,10 +15,40 @@ Player* changeturn(Player* currentPlayer, Player* player1, Player* player2) {
 }
 
 int main() {
+	bool start = false;
+	while (start = false) {
+		int type1;
+		int type2;
+		start = true;
+		std::cout << "Willkommen bei Muehle" << endl;
+		std::cout << "Soll Spieler 1 eine KI oder ein Mensch sein?" << endl;
+		std::cout << "(1)Mensch     (2)KI" << endl;
+		std::cin >> type1;
+		std::cout << "Soll Spieler 1 eine KI oder ein Mensch sein?" << endl;
+		std::cout << "(1)Mensch     (2)KI" << endl;
+		std::cin >> type2;
+		switch (type1) {
+		case 1: Human* player1 = new Human("w");
+			break;
+		case 2: RandomAI* player1 = new RandomAI("w");
+			break;
+		default:
+			std::cout << "Fehlerhafte Eingabe" << endl;
+			RandomAI* player1 = new RandomAI("w");
+		}
+		switch (type2) {
+		case 1: Human* player2 = new Human("b");
+			break;
+		case 2: RandomAI* player2 = new RandomAI("b");
+			break;
+		default:
+			std::cout << "Fehlerhafte Eingabe" << endl;
+			RandomAI* player2 = new RandomAI("b");
+		}
+	}
 	field = new Field();
 	bool win = false;
-	Human* player1 = new Human("w");
-	Human* player2 = new Human("b");
+	string winner;
 	Player* currentPlayer = player1;	
 	while (!(player1->get_tokencounter() == 0 && player2->get_tokencounter() == 0)) {
 		field->printfield();
@@ -46,6 +76,7 @@ int main() {
 		currentPlayer = changeturn(currentPlayer, player1, player2);
 	}
 	while (win == false) {
+		field->printfield();
 		int oldmills = 0;
 		int newmills = 0;
 		Positions* oldmuehlen[5][3];
@@ -80,8 +111,14 @@ int main() {
 				}
 			}
 		}
+		currentPlayer = changeturn(currentPlayer, player1, player2);
+		if (field->checkwin(player1, player2)) {
+			win = true;
+			winner = field->checkwin(player1, player2)->get_tokencolor();
+		}
 
 	}
+	std::cout << winner << " hat gewonnen" << endl;
 	/*field->printfield();
 	player1->spawnToken();
 	field->updateneighbourpositions();

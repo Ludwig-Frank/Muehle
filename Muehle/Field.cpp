@@ -60,8 +60,30 @@ void Field::printfield() {
 	std::cout << "|         |         |" << endl;
 	std::cout << fieldAsArray[0][6]->get_currentToken() << "- - - - -" << fieldAsArray[0][5]->get_currentToken() << "- - - - -" << fieldAsArray[0][4]->get_currentToken() << endl;
 }
-Token Field::checkwin() {
-	return NULL;
+Player* Field::checkwin(Player* player1, Player* player2) {
+	int player1counter = 0;
+	int player2counter = 0;
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 8; j++) {
+			if (fieldAsArray[i][j]->get_currentToken() != "0") {
+				if (fieldAsArray[i][j]->get_Token()->relatedPlayer == player1) {
+					player1counter += 1;
+				}
+				if (fieldAsArray[i][j]->get_Token()->relatedPlayer == player2) {
+					player2counter += 1;
+				}
+			}
+		}
+	}
+	if (player1counter <= 2) {
+		return player2;
+	}
+	if (player2counter <= 2) {
+		return player1;
+	}
+	if (player1counter >= 2 && player2counter >= 2) {
+		return NULL;
+	}
 }
 
 bool Field::checkMuehle(string token)

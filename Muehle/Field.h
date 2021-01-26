@@ -1,5 +1,5 @@
 #include <iostream>
-#include"AI.h"
+#include"RandomAI.h"
 #include"Human.h"
 #include"Positions.h"
 #include "Token.h"
@@ -10,9 +10,8 @@ class Field
 public:
 	Positions* fieldAsArray[3][8];
 	void printfield();
-	Token checkwin();
+	Player* checkwin(Player* player1, Player* player2);
 	bool checkMuehle(string token);
 	void updateneighbourpositions();
-	void findmuehle(Player* player, Positions* middlePosition);
 	Field();
 };

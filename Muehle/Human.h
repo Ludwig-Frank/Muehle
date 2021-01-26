@@ -6,8 +6,8 @@ class Human : public Player
 {
 public:
 	Human(string color);
-	void kickEnemyToken();
-	void spawnToken();
-	void move();
+	void kickEnemyToken() override;
+	void spawnToken() override;
+	void move() override ;
 };
 

@@ -61,6 +61,7 @@ void Player::del_muehle(Positions* position1, Positions* middleposition, Positio
 			muehlen[i][0] = NULL;
 			muehlen[i][1] = NULL;
 			muehlen[i][2] = NULL;
+			return;
 		}
 	}
 }
