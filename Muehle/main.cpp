@@ -18,8 +18,9 @@ Player* changeturn(Player* currentPlayer, Player* player1, Player* player2) {
 }
 
 int main() {
+	Player* playerarray[2];
 	bool start = false;
-	while (start = false) {
+	while (start == false) {
 		int type1;
 		int type2;
 		start = true;
@@ -31,29 +32,31 @@ int main() {
 		std::cout << "(1)Mensch     (2)KI" << endl;
 		std::cin >> type2;
 		switch (type1) {
-		case 1: Human* player1 = new Human("w");
+		case 1: playerarray[0] = new Human("w");
 			break;
-		case 2: RandomAI* player1 = new RandomAI("w");
+		case 2: playerarray[0] = new RandomAI("w");
 			break;
 		default:
 			std::cout << "Fehlerhafte Eingabe" << endl;
+			playerarray[0] = new RandomAI("w");
 			start = false;
 		}
 		switch (type2) {
-		case 1: Human* player2 = new Human("b");
+		case 1: playerarray[1] = new Human("b");
 			break;
-		case 2: RandomAI* player2 = new RandomAI("b");
+		case 2: playerarray[1] = new RandomAI("b");
 			break;
 		default:
 			std::cout << "Fehlerhafte Eingabe" << endl;
+			playerarray[1] = new RandomAI("b");
 			start = false;
 		}
 	}
 	field = new Field();
 	bool win = false;
 	string winner;
-	Player* player1;
-	Player* player2;
+	Player* player1 = playerarray[0];
+	Player* player2 = playerarray[1];
 	Player* currentPlayer = player1;	
 	while (!(player1->get_tokencounter() == 0 && player2->get_tokencounter() == 0)) {
 		field->printfield();
@@ -124,12 +127,6 @@ int main() {
 
 	}
 	std::cout << winner << " hat gewonnen" << endl;
-	/*field->printfield();
-	player1->spawnToken();
-	field->updateneighbourpositions();
-	field->printfield();
-	player1->move();
-	field->printfield();*/
 	getchar();
 }
  
