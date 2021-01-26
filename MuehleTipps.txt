@@ -1,0 +1,9 @@
+Navigation: 
+	Positionen werden über 2 Attribute bestimmt (Ring und Position)
+	Ring: Die Ringe sind von Außen nach Innen gezählt, d.h., der äußerste Ring hat die Numemr 0 und der innerste die Numemr 2.
+	Position: Die Positionen sind im Uhrzeigersinn, beginnend in der oberen linken Ecke gezählt. 
+
+Bewegung:
+	Nach Außen/Innen bezieht sich auf den Ring. Weiter nach außen ist also ein Ring mit einem geringeren Wert.
+	Weiter/Zurück auf dem Ring bezieht sich auf die laufrichtung auf einem Ring (Weiter = Mit dem Uhrzeigersinn)
+Viel Spaß beim Spielen!
