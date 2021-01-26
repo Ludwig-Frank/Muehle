@@ -6,4 +6,7 @@ Navigation:
 Bewegung:
 	Nach Außen/Innen bezieht sich auf den Ring. Weiter nach außen ist also ein Ring mit einem geringeren Wert.
 	Weiter/Zurück auf dem Ring bezieht sich auf die laufrichtung auf einem Ring (Weiter = Mit dem Uhrzeigersinn)
+Regelwerk:
+	https://www.spielezar.ch/blog/spielregeln/muehle-spielregeln
+	(ohne die Sprungphase)
 Viel Spaß beim Spielen!
