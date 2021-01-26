@@ -12,5 +12,6 @@ public:
 	int coordinates[2];
 	string get_currentToken();
 	void set_token(Token* token);
+	Token* get_Token();
 };
 

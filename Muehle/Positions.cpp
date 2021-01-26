@@ -24,3 +24,8 @@ void Positions::set_token(Token* token)
 {
 	currentToken = token;
 }
+
+Token* Positions::get_Token()
+{
+	return currentToken;
+}

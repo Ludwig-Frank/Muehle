@@ -12,5 +12,7 @@ public:
 	void printfield();
 	Token checkwin();
 	bool checkMuehle(string token);
+	void updateneighbourpositions();
+	void findmuehle(Player* player, Positions* middlePosition);
 	Field();
 };

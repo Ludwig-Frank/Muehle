@@ -8,13 +8,11 @@ Field::Field() {
 	for (int i = 0; i < 3; i++) {
 		for (int j = 0; j < 8; j++) {
 			fieldAsArray[i][j] = new Positions(i,j);
-			
-			
 
 		}
 	}
 	for (int i = 0; i < 3; i++) {
-		for (int j = 0; j < 8; j++) 
+		for (int j = 0; j < 8; j++){ 
 			if (j % 2 == 1) {
 				if (i < 2) {
 					fieldAsArray[i][j]->neighbourpositions[0] = fieldAsArray[i + 1][j];
@@ -71,15 +69,58 @@ bool Field::checkMuehle(string token)
 	bool muehle = false;
 	for (int i = 0; i < 3; i++) {
 		for (int j = 0; j < 8; j++) {
-			if (i % 2 == 1) {
-				if (fieldAsArray[i][j]->neighbourpositions[0]->get_currentToken() == token && fieldAsArray[i][j]->neighbourpositions[1]->get_currentToken() == token) {
-					bool muehle = true;
+			if (j % 2 == 1 && fieldAsArray[i][j]->get_currentToken()==token) {
+				if (fieldAsArray[i][j]->neighbourpositions[0] && fieldAsArray[i][j]->neighbourpositions[1]) {
+					if (fieldAsArray[i][j]->neighbourpositions[0]->get_currentToken() == token && fieldAsArray[i][j]->neighbourpositions[1]->get_currentToken() == token) {
+						muehle = true;
+						fieldAsArray[i][j]->get_Token()->relatedPlayer->add_muehle(fieldAsArray[i][j]->neighbourpositions[0], fieldAsArray[i][j], fieldAsArray[i][j]->neighbourpositions[1]);
+					}
 				}
-				if (fieldAsArray[i][j]->neighbourpositions[2]->get_currentToken() == token && fieldAsArray[i][j]->neighbourpositions[3]->get_currentToken() == token) {
-					bool muehle = true;
+				if (fieldAsArray[i][j]->neighbourpositions[2] && fieldAsArray[i][j]->neighbourpositions[3]) {
+					if (fieldAsArray[i][j]->neighbourpositions[2]->get_currentToken() == token && fieldAsArray[i][j]->neighbourpositions[3]->get_currentToken() == token) {
+						muehle = true;
+						fieldAsArray[i][j]->get_Token()->relatedPlayer->add_muehle(fieldAsArray[i][j]->neighbourpositions[2], fieldAsArray[i][j], fieldAsArray[i][j]->neighbourpositions[3]);
+					}
 				}
 			}
 		}
 	}
 	return muehle;
 }
+
+void Field::updateneighbourpositions()
+{
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 8; j++) {
+			if (j % 2 == 1) {
+				if (i < 2) {
+					fieldAsArray[i][j]->neighbourpositions[0] = fieldAsArray[i + 1][j];
+				}
+				if (i > 0) {
+					fieldAsArray[i][j]->neighbourpositions[1] = fieldAsArray[i - 1][j];
+				}
+				if (j < 7) {
+					fieldAsArray[i][j]->neighbourpositions[2] = fieldAsArray[i][j + 1];
+				}
+				if (j > 0) {
+					fieldAsArray[i][j]->neighbourpositions[3] = fieldAsArray[i][j - 1];
+				}
+			}
+			if (j % 2 == 0) {
+				if (j < 7) {
+					fieldAsArray[i][j]->neighbourpositions[2] = fieldAsArray[i][j + 1];
+				}
+				if (j > 0) {
+					fieldAsArray[i][j]->neighbourpositions[3] = fieldAsArray[i][j - 1];
+				}
+				if (j == 0) {
+					fieldAsArray[i][j]->neighbourpositions[3] = fieldAsArray[i][7];
+				}
+				if (j == 7) {
+					fieldAsArray[i][j]->neighbourpositions[2] = fieldAsArray[i][0];
+				}
+			}
+		}
+	}
+}
+

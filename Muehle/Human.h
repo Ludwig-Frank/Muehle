@@ -8,5 +8,6 @@ public:
 	Human(string color);
 	void kickEnemyToken();
 	void spawnToken();
+	void move();
 };
 
